@@ -62,9 +62,26 @@ Within `main.py`, there are a few optional sections you can also choose to imple
 2. Add image augmentation. You can use some of the augmentation techniques you may have used on Traffic Sign Classification or Behavioral Cloning, or look into additional methods for more robust training!
 3. Apply the trained model to a video. This project only involves performing inference on a set of test images, but you can also try to utilize it on a full video.
  
-### Using GitHub and Creating Effective READMEs
-If you are unfamiliar with GitHub , Udacity has a brief [GitHub tutorial](http://blog.udacity.com/2015/06/a-beginners-git-github-tutorial.html) to get you started. Udacity also provides a more detailed free [course on git and GitHub](https://www.udacity.com/course/how-to-use-git-and-github--ud775).
+### Rubic points 
 
-To learn about REAMDE files and Markdown, Udacity provides a free [course on READMEs](https://www.udacity.com/courses/ud777), as well. 
+#### Architecture Overview
 
-GitHub also provides a [tutorial](https://guides.github.com/features/mastering-markdown/) about creating Markdown files.
+Based on the [FCN-8](https://people.eecs.berkeley.edu/~jonlong/long_shelhamer_fcn.pdf) architecture developed at Berkeley
+
+- Encoder: Pre-trained VGG16
+- 1x1 Convolution Layer
+- Decoder: 3 Up-Sample Layers (Transposed Convolutions)
+- Decoder: 2 Skip Connection Layers 
+
+#### Hyper-parameters
+
+- Epoch 40
+- Batches 8, bigger values caused out of memory error on my machine
+- Learning Rate 0.001
+- Keep Probability 0.75
+- L2 Regularization 1e-3, to prevent overfitting
+
+#### Example Results
+
+![Example-1](./examples/example-1.png) ![Example-2](./examples/example-2.png)
+![Example-3](./examples/example-3.png) ![Example-4](./examples/example-4.png)
